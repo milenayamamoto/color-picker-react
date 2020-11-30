@@ -1,9 +1,11 @@
+import sizes from './sizes'
+
 export default {
-  Navbar: {
+	Navbar: {
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
-		height: '6vh'
+		height: '6vh',
 	},
 
 	logo: {
@@ -18,8 +20,11 @@ export default {
 
 		'& a': {
 			textDecoration: 'none',
-			color: 'black'
-		}
+			color: 'black',
+		},
+		[sizes.down('xs')]: {
+			display: 'none',
+		},
 	},
 
 	slider: {
@@ -28,11 +33,11 @@ export default {
 		display: 'inline-block',
 
 		'& .rc-slider-track': {
-			backgroundColor: 'transparent'
+			backgroundColor: 'transparent',
 		},
 
 		'& .rc-slider-rail': {
-			height: '8px'
+			height: '8px',
 		},
 
 		'& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover': {
@@ -43,12 +48,15 @@ export default {
 			width: '13px',
 			height: '13px',
 			marginLeft: '-3px',
-			marginTop: '-3px'
-		}
+			marginTop: '-3px',
+		},
+		[sizes.down('md')]: {
+			width: '150%',
+		},
 	},
 
 	selectContainer: {
 		marginLeft: 'auto',
-		marginRight: '1rem'
-	}
+		marginRight: '1rem',
+	},
 }
