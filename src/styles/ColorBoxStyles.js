@@ -1,9 +1,10 @@
 import chroma from 'chroma-js'
+import sizes from './sizes'
 
 export default {
 	ColorBox: {
 		width: '20%',
-		height: props => (props.showingFullPalette ? '25%' : '50%'),
+		height: (props) => (props.showingFullPalette ? '25%' : '50%'),
 		margin: '0 auto',
 		display: 'inline-block',
 		position: 'relative',
@@ -11,22 +12,34 @@ export default {
 		marginBottom: '-3.5px',
 
 		'&:hover button': {
-			opacity: '1'
-		}
+			opacity: '1',
+		},
+		[sizes.down('lg')]: {
+			width: '25%',
+			height: (props) => (props.showingFullPalette ? '20%' : '50%'),
+		},
+		[sizes.down('md')]: {
+			width: '50%',
+			height: (props) => (props.showingFullPalette ? '10%' : '50%'),
+		},
+		[sizes.down('xs')]: {
+			width: '100%',
+			height: (props) => (props.showingFullPalette ? '5%' : '10%'),
+		},
 	},
 
 	copyText: {
-		color: props =>
-			chroma(props.background).luminance() >= 0.7 ? 'black' : 'white'
+		color: (props) =>
+			chroma(props.background).luminance() >= 0.7 ? 'black' : 'white',
 	},
 
 	colorName: {
-		color: props =>
-			chroma(props.background).luminance() <= 0.08 ? 'white' : 'black'
+		color: (props) =>
+			chroma(props.background).luminance() <= 0.08 ? 'white' : 'black',
 	},
 
 	seeMore: {
-		color: props =>
+		color: (props) =>
 			chroma(props.background).luminance() >= 0.7
 				? 'rgba(0, 0, 0, 0.6)'
 				: 'white',
@@ -39,11 +52,11 @@ export default {
 		height: '30px',
 		textAlign: 'center',
 		lineHeight: '30px',
-		textTransform: 'uppercase'
+		textTransform: 'uppercase',
 	},
 
 	copyButton: {
-		color: props =>
+		color: (props) =>
 			chroma(props.background).luminance() >= 0.7 ? 'white' : 'black',
 		width: '100px',
 		height: '30px',
@@ -61,7 +74,7 @@ export default {
 		textTransform: 'uppercase',
 		border: 'none',
 		textDecoration: 'none',
-		opacity: '0'
+		opacity: '0',
 	},
 
 	boxContent: {
@@ -73,7 +86,7 @@ export default {
 		color: 'black',
 		letterSpacing: '1px',
 		textTransform: 'uppercase',
-		fontSize: '12px'
+		fontSize: '12px',
 	},
 
 	copyOverlay: {
@@ -82,14 +95,14 @@ export default {
 		width: '100%',
 		height: '100%',
 		transition: 'transform 0.6s ease-in-out',
-		transform: 'scale(0.1)'
+		transform: 'scale(0.1)',
 	},
 
 	showOverlay: {
 		opacity: '1',
 		transform: 'scale(50)',
 		zIndex: '10',
-		position: 'absolute'
+		position: 'absolute',
 	},
 
 	copyMessage: {
@@ -115,12 +128,12 @@ export default {
 			textAlign: 'center',
 			marginBottom: '0',
 			padding: '1rem',
-			textTransform: 'uppercase'
+			textTransform: 'uppercase',
 		},
 
 		'& p': {
-			fontSize: '2rem'
-		}
+			fontSize: '2rem',
+		},
 	},
 
 	showMessage: {
@@ -128,6 +141,6 @@ export default {
 		transform: 'scale(1)',
 		zIndex: '25',
 		transition: 'all 0.4s ease-in-out',
-		transitionDelay: '0.3s'
-	}
+		transitionDelay: '0.3s',
+	},
 }
